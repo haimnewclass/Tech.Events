@@ -37,7 +37,7 @@ namespace Tech.Events.Console
         public void Run()
         {
 
-            func2(345);// exception null
+          //  func2(345);// exception null
 
             func2 = ChangePlus;
             func2(1234);

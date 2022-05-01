@@ -44,6 +44,12 @@ namespace Tech.Events.Console
             delegateSample.name = "Fifa";
             delegateSample.Run();
 
+            Gov gov = new Gov();
+            gov.SendStopSale += item.StopRecallSwitch;
+            gov.SendStopSale += item2.StopRecallSwitch;
+            gov.SendStopSale += item3.StopRecallSwitch;
+
+            gov.SendRecall();
 
 
         }
@@ -89,8 +95,8 @@ namespace Tech.Events.Console
         static void Main(string[] args)
         {
 
-            TestEvent();
-
+            // TestEvent();
+            TestDelegate();
 
 
         }

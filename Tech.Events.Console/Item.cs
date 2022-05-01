@@ -9,12 +9,21 @@ namespace Tech.Events.Console
     internal class Item
     {
         public delegate double delCalcPrice(double itemPrice);
+        public delegate void delRecall();
+        private bool StopSale = false;
         public double price    { get; set; }
         public string name { get; set; }
 
+        public void StopRecallSwitch()
+        {
+            StopSale = true;
+        }
         public double calculatePrice(delCalcPrice func)
         {
             double ret = func(price)+price;
+
+            if (StopSale) ret = -1;
+
             return ret;
         }
 
