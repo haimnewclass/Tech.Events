@@ -11,6 +11,15 @@ namespace Tech.Events.Console
         public event Item.delRecall SendStopSale;
         public void SendRecall()
         {
+            System.Collections.Generic.Queue<int> q = new Queue<int>();
+            q.Enqueue(123);
+            int a = q.Dequeue();
+
+            string str = "[123]";
+            str = str.Replace("[", "");
+            str = str.Replace("]", "");
+
+
             SendStopSale();
         }
     }

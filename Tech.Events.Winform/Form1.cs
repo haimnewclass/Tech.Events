@@ -21,10 +21,21 @@ namespace Tech.Events.Winform
         {
             textBox1.Text = "123";
 
-            Task.Factory.StartNew(() => { 
-            
-                Random random = new Random();
-                textBox1.Text = random.Next(1, 10000).ToString();
+            Task.Factory.StartNew(() => {
+                while (true)
+                {
+                    Random random = new Random();
+
+                    if (textBox1.InvokeRequired)
+                    {
+                        textBox1.Invoke(new Action(() => { textBox1.Text = random.Next(1, 10000).ToString(); }));
+                    }
+                    else
+                    {
+                        textBox1.Text = random.Next(1, 10000).ToString();
+                    }
+                    System.Threading.Thread.Sleep(1000);
+                }
             });
         }
 
